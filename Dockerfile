@@ -10,7 +10,7 @@ RUN set -x && \
 	rm /nps/npc && \
 	wget --no-check-certificate ${NPS_RELEASE_URL_2} && \ 
 	chmod +x /npc_linux_amd64 && \
-	mv /npc_linux_amd64 /npc
+	mv /npc_linux_amd64 /npc && \
 	mv /npc /nps/npc
 
 ENV SERVERIP 127.0.0.1:8284
