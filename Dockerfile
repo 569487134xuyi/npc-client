@@ -7,13 +7,13 @@ ENV NPS_RELEASE_URL_2 https://github.com/cnlh/nps/releases/download/v0.24.0/npc_
 RUN set -x && \
 	wget --no-check-certificate ${NPS_RELEASE_URL_1} && \ 
 	tar xzf linux_amd64_client.tar.gz && \
-	mv /nps /npc && \
-	rm /npc/npc && \
+	rm /nps/npc && \
 	wget --no-check-certificate ${NPS_RELEASE_URL_2} && \ 
 	chmod +x /npc_linux_amd64 && \
-	mv /npc_linux_amd64 /npc/npc
+	mv /npc_linux_amd64 /npc
+	mv /npc /nps/
 
 ENV SERVERIP 127.0.0.1:8284
 ENV VKEY 123
 
-CMD /npc/npc -server=${SERVERIP} -vkey=${VKEY}
+CMD /nps/npc -server=${SERVERIP} -vkey=${VKEY}
